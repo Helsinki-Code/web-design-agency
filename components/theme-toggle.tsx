@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { ReactElement } from "react";
 
 type ThemeMode = "light" | "dark";
 
-export function ThemeToggle(): JSX.Element {
+export function ThemeToggle(): ReactElement {
   const [theme, setTheme] = useState<ThemeMode>("dark");
 
   useEffect(() => {

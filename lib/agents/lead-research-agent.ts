@@ -71,7 +71,7 @@ export async function syncFindAllToLeads(findallId: string): Promise<{ imported:
   let imported = 0;
 
   for (const candidate of matched) {
-    const output = candidate.output ?? {};
+    const output = (candidate.output ?? {}) as Record<string, { value?: string }>;
 
     const lead = {
       title: candidate.name ?? "Unnamed Business",

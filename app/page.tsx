@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactElement } from "react";
 
 interface RunResult {
   [key: string]: unknown;
 }
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): ReactElement {
   const [objective, setObjective] = useState(
     "Find service businesses in the United States with weak website UX, weak visual trust, and reachable decision maker contact information."
   );

@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { ReactElement } from "react";
 
-export default function PipelinePage(): JSX.Element {
+export default function PipelinePage(): ReactElement {
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [total, setTotal] = useState(0);
 

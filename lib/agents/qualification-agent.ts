@@ -69,7 +69,7 @@ export async function qualifyLead(lead: Lead): Promise<QualificationResult> {
     leadId: lead.id,
     agent: "qualification",
     eventType: "lead_qualified",
-    payload: result
+    payload: result as unknown as Record<string, unknown>
   });
 
   return result;

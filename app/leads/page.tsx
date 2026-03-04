@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { ReactElement } from "react";
 
 type Lead = {
   id: string;
@@ -12,7 +13,7 @@ type Lead = {
   updated_at: string;
 };
 
-export default function LeadsPage(): JSX.Element {
+export default function LeadsPage(): ReactElement {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,7 +41,7 @@ export default function LeadsPage(): JSX.Element {
     <div className="page-grid">
       <div className="card">
         <h2>Lead Inventory</h2>
-        <p>{loading ? "Loading leads..." : `${leads.length} leads loaded • ${highIntent} high-intent`}</p>
+        <p>{loading ? "Loading leads..." : `${leads.length} leads loaded â€¢ ${highIntent} high-intent`}</p>
         <button onClick={() => void loadLeads()} disabled={loading}>
           Refresh
         </button>

@@ -1,4 +1,6 @@
-export default function SettingsPage(): JSX.Element {
+import type { ReactElement } from "react";
+
+export default function SettingsPage(): ReactElement {
   return (
     <div className="page-grid">
       <div className="card">
