@@ -1,0 +1,34 @@
+{
+  "name": "web-design-agency",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "seed:csv": "tsx scripts/import-seed.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "csv-parse": "^5.6.0",
+    "next": "15.2.4",
+    "openai": "^4.104.0",
+    "parallel-web": "^0.3.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "15.2.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
