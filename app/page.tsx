@@ -13,10 +13,12 @@ export default function HomePage(): ReactElement {
   );
   const [result, setResult] = useState<RunResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function run(mode: "full" | "discovery" | "qualification" | "outreach"): Promise<void> {
     setLoading(true);
     setResult(null);
+    setErrorMessage(null);
 
     try {
       const response = await fetch("/api/automation/run", {
@@ -27,9 +29,20 @@ export default function HomePage(): ReactElement {
         },
         body: JSON.stringify({ mode, objective })
       });
+      const raw = await response.text();
+      const data = raw ? (JSON.parse(raw) as RunResult) : {};
 
-      const data = await response.json();
+      if (!response.ok) {
+        const error = typeof data.error === "string" ? data.error : `Request failed with status ${response.status}`;
+        setErrorMessage(error);
+        setResult(data);
+        return;
+      }
+
       setResult(data);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to run automation";
+      setErrorMessage(message);
     } finally {
       setLoading(false);
     }
@@ -61,6 +74,7 @@ export default function HomePage(): ReactElement {
 
       <div className="card output">
         <h3>Latest Run Output</h3>
+        {errorMessage ? <p className="error-text">{errorMessage}</p> : null}
         <pre>{result ? JSON.stringify(result, null, 2) : "No run has been executed yet."}</pre>
       </div>
     </div>

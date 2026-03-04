@@ -184,6 +184,13 @@ button:disabled {
   color: var(--muted);
 }
 
+.error-text {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
 .table-wrap {
   overflow: auto;
 }
